@@ -31,6 +31,13 @@ public class Assign4{
 					System.out.printf("%d ", adj[i][j]);
 			System.out.println();
 			}
+
+			BFS b = new BFS();
+			b.bfs(adj, source);
+			System.out.println("DFS");
+			DFS d = new DFS();
+			d.dfs(adj, source);
+			
 			reader.close();
 		}catch (IOException e)
 		{

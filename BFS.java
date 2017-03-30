@@ -6,7 +6,7 @@ public class BFS{
 		queue = new Queue();
 	}
 
-	/*public void bfs(int adj[][], int source){
+	public void bfs(int adj[][], int source){
 
 		int numNode = adj[source].length-1;
 		int []visited = new int[numNode +1];
@@ -25,9 +25,9 @@ public class BFS{
 				i++;
 			}
 		}
-	}*/
+	}
 
-	public String[] bfs(int adj[][], int start, int end){
+	/*public String[] bfs(int adj[][], int start, int end){
 		int numNode = adj[start].length-1;
 		int []visited = new int[numNode +1];
 		int i, element;
@@ -46,5 +46,5 @@ public class BFS{
 			element = queue.dequeue();
 			visited[element] = 1;
 		}
-	}
+	}*/
 }

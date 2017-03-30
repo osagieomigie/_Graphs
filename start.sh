@@ -1,2 +1,2 @@
-javac Assign4.java
+javac *.java
 java Assign4 input.txt

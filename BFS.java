@@ -44,7 +44,7 @@ public class BFS{
 
 		while(!queue.isEmpty()){
 			element = queue.dequeue();
-			visited[element] = 1 
+			visited[element] = 1;
 		}
 	}
 }

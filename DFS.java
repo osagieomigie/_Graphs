@@ -68,7 +68,7 @@ public class DFS{
 			}
 		}
 		if(visited[start]== false){
-			return -1;
+			return;
 		}
 
 		visited[start] = false;

@@ -14,6 +14,7 @@ public class Assign4{
 
 			String line; 
 			String [] array; 
+			int [] path;  
 			int [][]adj = new int [31][31];
 			int source = 0; 
 			int row =0; 
@@ -26,18 +27,22 @@ public class Assign4{
 				row++;
 			}	
 
-			for (int i = 0; i <= 30; i++) {
+			/*for (int i = 0; i <= 30; i++) {
 				for (int j = 0; j <= 30; j++) 
 					System.out.printf("%d ", adj[i][j]);
-			System.out.println();
-			}
+			}*/
 
 			BFS b = new BFS();
-			b.bfs(adj, source);
-			System.out.println("DFS");
-			DFS d = new DFS();
-			d.dfs(adj, source);
+			b.bfs(adj, 1, 4);
+			//System.out.println("DFS");
+
+			//DFS d = new DFS();
+			//d.dfs(adj, 7, 30);
 			
+			/*for (int i = 0; i < path.length; i++){
+    			System.out.printf("%d ", path[i]);
+ 			}
+  			System.out.printf("\n");*/
 			reader.close();
 		}catch (IOException e)
 		{

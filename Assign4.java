@@ -37,12 +37,12 @@ public class Assign4{
 			//System.out.println("DFS");
 
 			DFS d = new DFS();
-			d.dfs(adj, 7, 30);
+			d.dfs(adj, 1, 4);
 			
-			for (int i = 0; i < path.length; i++){
+			/*for (int i = 0; i < path.length; i++){
     			System.out.printf("%d ", path[i]);
  			}
-  			System.out.printf("\n");
+  			System.out.printf("\n");*/
 			reader.close();
 		}catch (IOException e)
 		{

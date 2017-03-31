@@ -32,17 +32,17 @@ public class Assign4{
 					System.out.printf("%d ", adj[i][j]);
 			}*/
 
-			BFS b = new BFS();
-			b.bfs(adj, 1, 4);
+			//BFS b = new BFS();
+			//b.bfs(adj, 1, 4);
 			//System.out.println("DFS");
 
-			//DFS d = new DFS();
-			//d.dfs(adj, 7, 30);
+			DFS d = new DFS();
+			d.dfs(adj, 7, 30);
 			
-			/*for (int i = 0; i < path.length; i++){
+			for (int i = 0; i < path.length; i++){
     			System.out.printf("%d ", path[i]);
  			}
-  			System.out.printf("\n");*/
+  			System.out.printf("\n");
 			reader.close();
 		}catch (IOException e)
 		{

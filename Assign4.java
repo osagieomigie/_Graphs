@@ -37,7 +37,7 @@ public class Assign4{
 			//System.out.println("DFS");
 
 			DFS d = new DFS();
-			d.dfs(adj, 1, 4);
+			d.dfs(adj, 7, 30);
 			
 			/*for (int i = 0; i < path.length; i++){
     			System.out.printf("%d ", path[i]);

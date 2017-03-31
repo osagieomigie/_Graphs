@@ -4,9 +4,18 @@ public class Queue{
 	int [] list;
 
 	Queue(){
-		list = new int[50];
+		list = new int[31];
 		head = -1;
 		tail = -1;
+	}
+
+	Queue(int aList[]){
+		list = new int[31];
+		head = -1;
+		tail = -1;
+		for(int i =0; i < aList.length; i++){
+			this.enqueue(aList[i]);
+		}
 	}
 
 	public void enqueue(int aNode){
@@ -18,6 +27,10 @@ public class Queue{
 			tail = tail + 1;
 		}
 		list[tail] = aNode;
+	}
+
+	public []int toArray(){
+		return list; 
 	}
 
 	public int dequeue(){

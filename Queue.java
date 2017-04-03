@@ -18,6 +18,10 @@ public class Queue{
 		}
 	}
 
+	public int [] toArray(){
+		return list;
+	}
+
 	public void enqueue(int aNode){
 		if(head == -1){
 			head = 0;
@@ -27,10 +31,6 @@ public class Queue{
 			tail = tail + 1;
 		}
 		list[tail] = aNode;
-	}
-
-	public []int toArray(){
-		return list; 
 	}
 
 	public int dequeue(){

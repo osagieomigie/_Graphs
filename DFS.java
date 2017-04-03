@@ -1,117 +1,75 @@
+
 import java.util.*;
 import java.util.Arrays;
+import java.io.IOException;
+import java.io.BufferedWriter;
 public class DFS{
 	
-	private Queue path;
-	
+	private int index = 0;
+ 	//private int []path = new int[31]; 
+ 	private Stack<Integer>path;
+ 	private boolean []visited = new boolean[31];
 
 	public DFS(){
-		//path = new Stack();
+		path = new Stack<Integer>();
+		//aPath = new Stack<Integer>();
 	}
 
-	/*public void dfs(int adj[][], int start){
-
-		int numNodes = adj[start].length -1;
-		int[] visited = new int[numNodes + 1];
-		int element = start;
-		int i = start;
-		System.out.println(element + "\t");
-		visited[start] =1;
-		aStack.push(start);
-		while(!aStack.isEmpty()){
-
-			element = aStack.peek();
-			i = element;
-			while(i <= numNodes){
-
-				if(adj[element][i] == 1 && visited[i] == 0){
-					aStack.push(i);
-					visited[i] =1;
-					element = i;
-					System.out.print(element + "\t");
-					continue;
-				}
-				i++;
-			}
-			aStack.pop();
-		}
-	}*/
-
-	public int[] dfs(int adj[][], int start, int dest){
-		int index = 0;
-		int [] path = new int[31]; 
-		boolean []visited = new boolean[31];
-		path = dfsHelper(adj,start,dest, path, 0);
-		
-		if(path.length < 2){
-			path = {start, -1, dest};
-		}
-		return path;
-	}
-
-	public int[] dfsHelper(int adj[][], int start, int dest, int currentPath[], int currentIndex){
-		int numNodes = adj[start].length -1;
-		int [] result ; 
-		visited[start] = true; 
-		currentPath[currentIndex] = start;
-		currentIndex++;
-
-		if (start == dest){
-			return currentPath;
-		}
-
-		else{
-			for(int i = 0; i<=numNodes; i++){
-				if(visited[i]== false && adj[start][i] ==1){
-
-					dfsHelper(adj, i, dest, Arrays.copyOf(currentPath, currentPath.length), currentIndex);
-					
-				}
-			}
-			
-		}
-		
-
-	}
-
-	public void print_path()
-	{
-  		int i;
-  		for (i = 0; i < index; i++)
-    		System.out.printf("%d ", path[i]+",");
+ 	public void dfs(int adj[][], int start, int dest, BufferedWriter output) throws IOException{
+ 		int numNodes = adj[start].length -1;
+ 		
+ 		
+ 		visited[start] = true; 
+ 		path.push(start);
+ 		index++;
+ 		
+ 		if (start == dest){
+ 			print_path(output, start, dest);
+ 			return;
+ 		}
  
-  		System.out.printf("\n");
+ 		for(int i = 0; i<=numNodes; i++){
+ 			if(visited[i]== false && adj[start][i] ==1){
+ 				dfs(adj, i, dest, output);
+ 			}
+ 		}
+ 		visited[start] = false;
+ 		path.pop();
 	}
 
+ 	public void print_path(BufferedWriter output, int start, int end) throws IOException
+  	{ 
+  		int [] x; 
+  		String s ="";
+  		//x = path.peek();
+  		//x = path.toArray(); 
+  		output.write(Arrays.toString(path.toArray()) + "\n");
+  		if (path.isEmpty()){
+  			//s = (x[0]+ " ,-1, " + end);
+  			output.write(s);
+  			output.flush();
+  		}
+  		
+  	}
 
-	/*public String dfs2(int adj[][], int start, int dest){
-		int index = 0;
-		int [] path = new int[31]; 
-		boolean []visited = new boolean[31];
-		//StringBuilder path = new StringBuilder();
-		path[index]= start;
-		
-		this.dfs2Helper(adj, start, dest, path, visited, index);
-		return path;
-	}
-
-	private boolean dfs2Helper(int adj[][], int currentNode, int destNode, int path[], int visited [], int index){
-		if((currentNode == destNode)){
-			path[index] = currentNode;
-			return;
+  	public void clearPath(){
+		while (!path.isEmpty()){
+			path.pop();
 		}
 		
-		for(int i =0; i <= adj.length; i++){
-			if(visited[i]== false && adj[currentNode][i]==1){
-				dfs2Helper(adj, i, destNode, path, visited,);
-			}
-		}
-
 	}
 
+	/*public String print_path()
+	{
+		StringBuilder result = new StringBuilder();
+		String node = " ";
+  	
+  		for (int i = 0; i < index; i++){
+    		node = path[i]+",";
+    		result.append(node);
+ 		}
 
-	private void addToPath(int node){
-		path[index] = node;
-		index++;
+  		return result.toString();
 	}*/
+
 }
